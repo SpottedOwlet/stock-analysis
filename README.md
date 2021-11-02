@@ -9,9 +9,9 @@ A stock analysis application was built using Excel-VBA to help Steve analyze sto
 <h3><p align=left>Purpose</p></h3>
 This report provides a detailed overview of the refactoring process and analyzes the stock performance of years 2017 and 2018.
 
-<h2> <p align=center>Results</p> </h2>
+<h2><p align=center>Analysis & Results</p></h2>
 
-<h3><p align=center>Stock Performance Analysis</p></h3>
+<h2><p align=center>Stock Performance Analysis</p></h2>
 
 All Stocks Analysis 2017   |  All Stocks Analysis 2018
 :-------------------------:|:-------------------------:
@@ -30,7 +30,7 @@ However, the scenario for green energy industry changed drastically in 2018.
 
 <h2><p align=center>Run Time Analysis </p></h2>
 
-Let us take a look at the structural changes made to the initial code in order to refactor it.
+Let us take a look at the code structure of the original code and refactored code in the following sections.
 
 **Features of the original (un-refactored) code:**
 * The initial code used Nested for loops, one for iterating through the Tickers array (containing 12 ticker names) and another iterating through all the rows of the dataset.

@@ -148,13 +148,14 @@ Some of the disadvantages of refactoring code can be:
 
 
 
-<h3> <p align=center>Code Refactoring : As It Applies To The Current Analysis </p> </h3>
+<h3> <p align=left>Code Refactoring : As It Applies To The Current Analysis </p> </h3>
 
 <h4>A Small Recap of Restructuring Mechanism :</h4>
 Refactoring of the code in this analysis mainly involved getting rid of a Nested for loop and many extra operations the Nested for loop was performing.
-The code was restructured by introducing three additonal arrays and a tickerIndex variable. This tickerIndex variable was used to reference to the tickers in the dataset.
+The code was restructured by introducing three additonal arrays and a tickerIndex variable. This tickerIndex variable was used to reference to the tickers in the dataset.<p>
+ </p>
 
-However, this particular restructuring of code was possible because of certain characteristics of the dataset. 
+However, this particular restructuring of code was possible because of certain characteristics of the dataset.
 * The dataset was previously sorted in the ascending order of the ticker names.
 * The Tickers array that contained ticker names, folllowed the exact same order of the names as in the dataset. 
 * Because the order of the tickers was same in the dataset and the ticker array, the condition in the If contidional where we check if the current ticker name is same as that of the dataset, became unnecessary. Removing this condition saved us some more time.

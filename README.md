@@ -1,4 +1,4 @@
-<h1> <p align=center>All Stocks Analysis </p> </h1>
+<h1> <p align=center>Stocks Analysis Report</p> </h1>
 
 
 <h2> <p align=center>Project Overview</p> </h2>

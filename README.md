@@ -4,7 +4,7 @@
 <h2> <p align=center>Project Overview</p> </h2>
 
 <h3><p align=left>Background </p></h3> 
-A stock analysis application was built using Excel-VBA to help Steve analyze stock dataset. The stock dataset is mainly comprised of a handful of renewable energy stocks. Along with expanding current functionality of Steve's current stock analysis workbook, the VBA code in the workbook was refactored. Refactored code enabled Steve to analyze the stock data for multiple years with some added benefits of refactoring the code, discussed later in detail.
+A stock analysis application was built using Excel-VBA to help Steve analyze stock dataset. The stock dataset is mainly comprised of a handful of renewable energy stocks. Along with expanding current functionality of Steve's current stock analysis workbook, the VBA code in the workbook was refactored. Refactored code enabled Steve to analyze the stock data for multiple years with some added benefits, discussed later in detail.
 
 <h3><p align=left>Purpose</p></h3>
 This report provides a detailed overview of the refactoring process and analyzes the stock performance of years 2017 and 2018.
@@ -26,16 +26,13 @@ However, the scenario for green energy industry changed drastically in 2018.
 * DQ was on -62.6% in loss as compared to its value at the start of year 2018.
 
 **Conclusions & Recommendations:**
-* As per the above analysis, if Steve's clients were to invest only in the green energy industry, along with DQ, RUN and ENPH could be possible options to achieve a little  diversification within green energy portfolio. 
-* However, putting all money in the same industry puts your portfolio at the greater risk and can potentially cut into portfolio's return potential.
-* Diversification of stocks over multiple industries would decrease volatility as well as a possibility of an adverse outcome.
-
+* As per the above analysis, if Steve's clients were to invest only in the green energy industry, RUN and ENPH seem to be better investment options, as both stocks gave positive returns over the entire period of analysis.
 
 <h2><p align=center>Run Time Analysis </p></h2>
 
-Let us take a look the structural changes made to the initial code in order to refactor it.
+Let us take a look at the structural changes made to the initial code in order to refactor it.
 
-**Features of the initial (un-refactored) code:**
+**Features of the original (un-refactored) code:**
 * The initial code used Nested for loops, one for iterating through the Tickers array (containing 12 ticker names) and another iterating through all the rows of the dataset.
 * The initial code used four variables ticker, totalVolume, startPrice and endPrice to store all the required values. These variables were then used to output the stored information at the end of each iteration, so that they could store new values during the next iteration.
 * The main structure of the initial code can be referred to in the code block below.
@@ -134,7 +131,7 @@ Code refactoring is a process of restructuring an existing body of code, alterin
 
 <h3> <p align=left>Code Refactoring In General: Pros </p> </h3>
 Some of the advantages of refactoring code are:
-* Code refactoring is intended to improve the design and structure of the code while preserving its functionality.
+<p>* Code refactoring is intended to improve the design and structure of the code while preserving its functionality.</p>
 * Refactoring of code may improve code readability and reduce complexity.
 * Refactoring is usually targeted towards increasing efficiency by decreasing the time taken for code execution.
 * Depending on the objective, the refactored code could use less memory hence making the code less resource dependent.
@@ -170,27 +167,16 @@ However, this particular restructuring of code was possible because of certain c
   </pre>
 
 
-**Pros & Cons of Code Refactoring : As It Applies To The Current Analysis :**
-<p>
-Pros:
-</p>
-  - Refactored code runs much faster, performing fewer calculations.
-<p>
-Cons:
-</p>
-  - Refactored code requires 3 additional arrays to store the results during its execution, consuming a lot more resources as compared to the original code.
-  
-<p>
+**Pros & Cons of Code Refactoring As It Applies To The Current Analysis:**
 
-</p>
+  - Pros: Refactored code runs much faster, performing fewer calculations.
 
-**Original Code : Pros And Cons:**
-<p>
-Pros:
-</p>
-   - Original code uses less memory(resources) while executing, as it uses only 3 variables to store and output the results.
-<p>
-Cons:
-</p>
-  - It performs many unnecessary calculations while running nested for loop and takes more time for execution.
+  - Cons: Refactored code requires 3 additional arrays to store the results during its execution, consuming a lot more resources as compared to the original code.
+ 
+
+**Pros And Cons Of The Original Code:**
+
+  - Pros: Original code uses less memory(resources) while executing, as it uses only 3 variables to store and output the results.
+
+  - Cons: It performs many unnecessary calculations while running nested for loop and takes more time for execution.
 

@@ -37,16 +37,16 @@ Let us take a look at the structural changes made to the initial code in order t
 * The initial code used four variables ticker, totalVolume, startPrice and endPrice to store all the required values. These variables were then used to output the stored information at the end of each iteration, so that they could store new values during the next iteration.
 * The main structure of the initial code can be referred to in the code block below.
 
-```
- '4) loop through the tickers
-    For i = 0 To 11
+<pre>
+ '4) Outer For loop to loop through the tickers
+  <b>For i = 0 To 11 </b>
         
             ticker = tickers(i)
             totalVolume = 0
         
             '5) loop through rows in data
             Worksheets(yearValue).Activate
-            For j = 2 To RowCount
+        <b> For j = 2 To RowCount </b>
                     
                         '5) a) find total vol for the current ticker
                         If Cells(j, 1).Value = ticker Then
@@ -63,7 +63,7 @@ Let us take a look at the structural changes made to the initial code in order t
                             endPrice = Cells(j, 6).Value
                         End If
                         
-            Next j
+    <b>     Next j </b>
     
             '6) output the data for the current ticker
             Worksheets("All_Stocks_Analysis").Activate
@@ -71,25 +71,27 @@ Let us take a look at the structural changes made to the initial code in order t
             Cells(4 + i, 2).Value = totalVolume
             Cells(4 + i, 3).Value = endPrice / startPrice - 1
                 
-    Next i
-```
+<b> Next i </b>
+</pre>
 **Features of the refactored code:**
 * The refactored code was restructured to remove the Nested for loop. Instead, there was only one loop iterating through all the rows.
 * To replace the for loop iterating through the tickers, a new variable tickerIndex was introduced. The tickerIndex variable was used to refer to the different tickers in the datatset. 
 * This restructuring also required three additional arrays to store the values of ticker volumes, starting and ending prices of the stocks. these three arrays were later used to retrieve and display all the values in the analysis table.
 
-```
+<pre>
+
+ <b> Three additional arrays to store values
     Dim tickerVolumes(0 To 11) As Long
     Dim tickerStartingPrices(0 To 11) As Single
-    Dim tickerEndingPrices(0 To 11) As Single
+    Dim tickerEndingPrices(0 To 11) As Single </b>
     
     ''2a) Create a for loop to initialize the tickerVolumes to zero.
     For i = 0 To 11
         tickerVolumes(i) = 0
     Next i
-        
-    ''2b) Loop over all the rows in the spreadsheet.
-    For i = 2 To RowCount
+    
+  <b>''2b) Loop over all the rows in the spreadsheet.
+     For i = 2 To RowCount </b>
         '3a) Increase volume for current ticker
         tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
             
@@ -106,9 +108,9 @@ Let us take a look at the structural changes made to the initial code in order t
             '3d Increase the tickerIndex.
             tickerIndex = tickerIndex + 1
         End If
-    Next i
+  <b>Next i </b>
 
-```
+</pre>
 
 We can see in the screenshots below that the code **run time of the refactored code for both the analyses has gone down significantly**. This is **mainly due to the number of reduced operations achieved by getting rid of the nested for loops**. 
 This restructuring of the code was mainly possible due to certain characteristics of the dataset. These characteristics have been discussed in detail in the further sections.
@@ -130,16 +132,20 @@ Code refactoring is a process of restructuring an existing body of code, alterin
 
 
 <h3> <p align=left>Code Refactoring In General: Pros </p> </h3>
-Some of the advantages of refactoring code are:
-<p>* Code refactoring is intended to improve the design and structure of the code while preserving its functionality.</p>
+
+Some of the advantages of refactoring code are as follows:
+* Code refactoring is intended to improve the design and structure of the code while preserving its functionality.
 * Refactoring of code may improve code readability and reduce complexity.
 * Refactoring is usually targeted towards increasing efficiency by decreasing the time taken for code execution.
 * Depending on the objective, the refactored code could use less memory hence making the code less resource dependent.
-
+ 
 
 <h3> <p align=left>Code Refactoring In General: Cons </p> </h3>
+
+Some of the disadvantages of refactoring code can be:
 * Refactoring of the code is generally a time consuming process.
 * Sometimes, refactoring code for a certain task could make it more specific for that task and can restrict it's use to particular tasks or situations.
+
 
 
 <h3> <p align=center>Code Refactoring : As It Applies To The Current Analysis </p> </h3>
@@ -167,16 +173,16 @@ However, this particular restructuring of code was possible because of certain c
   </pre>
 
 
-**Pros & Cons of Code Refactoring As It Applies To The Current Analysis:**
+<h3>Pros & Cons of Code Refactoring As It Applies To The Current Analysis:</h3>
 
-  - Pros: Refactored code runs much faster, performing fewer calculations.
+  - **Pros:** Refactored code runs much faster, performing fewer calculations.
 
-  - Cons: Refactored code requires 3 additional arrays to store the results during its execution, consuming a lot more resources as compared to the original code.
+  - **Cons:** Refactored code requires 3 additional arrays to store the results during its execution, consuming a lot more resources as compared to the original code.
  
 
-**Pros And Cons Of The Original Code:**
+<h3>Pros And Cons Of The Original Code:</h3>
 
-  - Pros: Original code uses less memory(resources) while executing, as it uses only 3 variables to store and output the results.
+  - **Pros:** Original code uses less memory(resources) while executing, as it uses only 3 variables to store and output the results.
 
-  - Cons: It performs many unnecessary calculations while running nested for loop and takes more time for execution.
+  - **Cons:** It performs many unnecessary calculations while running nested for loop and takes more time for execution.
 
